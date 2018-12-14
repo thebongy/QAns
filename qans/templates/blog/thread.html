@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Q:{{ post['title'] }}{% endblock %}</h1>
+  <hr />
+{% endblock %}
+
+{% block content %}
+<div class="card bg-light">
+    <div class="card-header">
+        <h4 class="card-title">Q: {{ post['title'] }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</h6>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ post['body'] }}</p>
+        {% if g.user['id'] == post['author_id'] %}
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a class="btn btn-secondary btn-sm" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+ <hr />
+
+ {% for reply in replies %}
+ <div class="card">
+    <div class="card-header">
+        <h5 class="card-title">{{ reply['username'] }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">on {{ reply['created'].strftime('%Y-%m-%d') }}</h6>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ reply['body'] }}</p>
+        {% if g.user['id'] == reply['author_id'] %}
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a class="btn btn-secondary btn-sm" href="{{ url_for('blog.updateReply', id=reply['id']) }}">Edit</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+ {% endfor %}
+<form action="{{ url_for('blog.postReply', id=post['id']) }}" method="post">
+        <div class="form-group">
+          <label for="questionBodyInput">Post a reply on the thread:</label>
+          <textarea rows="8" name="body" class="form-control" id="questionBodyInput" placeholder="Give details about your question"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Reply</button>
+</form>
+{% endblock %}
+

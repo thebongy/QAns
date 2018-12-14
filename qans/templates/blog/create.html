@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Ask a Question:{% endblock %}</h1>
+  <span>Fill in details about your question below:</span>
+  <hr />
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    <div class="form-group">
+      <label for="questionTitleInput">Title</label>
+      <input name="title" type="text" class="form-control" id="questionTitleInput" placeholder="Describe your question in a sentence">
+    </div>
+    <div class="form-group">
+      <label for="questionBodyInput">Explain your question further, or give other details, such as what you have tried/other issues. Try to stick to the main question in hand.</label>
+      <textarea name="body" class="form-control" id="questionBodyInput" placeholder="Give details about your question"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

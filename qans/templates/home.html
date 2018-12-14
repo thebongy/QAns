@@ -1,0 +1,15 @@
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div id="home-greeting" class="jumbotron">
+    <h1 class="display-4">Welcome to QAns</h1>
+    <p class="lead">QAns is a simple forum for asking questions and discussing answers</p>
+    <hr class="my-4">
+    <p>
+        Login to your QAns account to get started: <br />
+        <a class="btn btn-primary" href="{{ url_for('auth.login') }}" role="button">Login</a> <br /><br />
+        Don't have an account? Click <a href="{{ url_for('auth.register') }}">here</a> to register.
+    </p>
+</div>
+{% endblock %}
