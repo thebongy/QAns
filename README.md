@@ -23,7 +23,7 @@ flask run
 After the local server is running, navigate to `localhost:5000` in a browser to view the app.
 
 Features of the app:
-1. A user registration/login system, with permissions for user to just edit/delete their on questions/answers
+1. A user registration/login system, with permissions for users to edit/delete only their own questions/answers
 2. Questions and answers are sorted by timestamp
 3. The app uses 0 javascript, all view logic has been implemented through jinja2 templates.
-4. A minimaistic, sleek UI using bootstrao CSS.
+4. A minimalistic, sleek UI using bootstrap CSS.
