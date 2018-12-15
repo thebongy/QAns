@@ -7,13 +7,6 @@
 {% endblock %}
 
 {% block content %}
-  <!-- <form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Log In">
-  </form> -->
   <form method="post">
       <div class="form-group">
         <label for="username">Username</label>
@@ -25,4 +18,6 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+  <br />
+  Don't have an account? Click <a href="{{ url_for('auth.register') }}">here</a> to register.
 {% endblock %}

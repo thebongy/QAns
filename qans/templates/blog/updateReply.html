@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <input type="hidden" name="postID" value="{{ reply['post_id'] }}">
+    <div class="form-group">
+      <label for="replyBodyInput">Edit the reply:</label>
+      <textarea rows="8" name="body" class="form-control" id="replyBodyInput" placeholder="Give details about your question">{{ request.form['body'] or reply['body'] }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}

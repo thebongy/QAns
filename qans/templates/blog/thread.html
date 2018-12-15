@@ -14,8 +14,11 @@
     <div class="card-body">
         <p class="card-text">{{ post['body'] }}</p>
         {% if g.user['id'] == post['author_id'] %}
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <a class="btn btn-secondary btn-sm" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
+        <div class="btn-group" role="group">
+            <a class="btn btn-outline-secondary btn-sm" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
+            <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post">
+                <input class="btn btn-sm btn-outline-danger" type="submit" value="Delete" onclick="return confirm('Are you sure? This action deletes the question, and the whole thread.');">
+            </form>
         </div>
         {% endif %}
     </div>
@@ -31,13 +34,20 @@
     <div class="card-body">
         <p class="card-text">{{ reply['body'] }}</p>
         {% if g.user['id'] == reply['author_id'] %}
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <a class="btn btn-secondary btn-sm" href="{{ url_for('blog.updateReply', id=reply['id']) }}">Edit</a>
+        <div class="btn-group" role="group">
+            <a class="btn btn-outline-secondary btn-sm" href="{{ url_for('blog.updateReply', id=reply['id']) }}">Edit</a>
+            <form action="{{ url_for('blog.deleteReply', id=reply['id']) }}" method="post">
+                <input class="btn btn-sm btn-outline-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+            </form>
         </div>
         {% endif %}
     </div>
 </div>
+<br />
  {% endfor %}
+
+ <br />
+ <br />
 <form action="{{ url_for('blog.postReply', id=post['id']) }}" method="post">
         <div class="form-group">
           <label for="questionBodyInput">Post a reply on the thread:</label>
@@ -45,5 +55,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Reply</button>
 </form>
+
+<br />
 {% endblock %}
 

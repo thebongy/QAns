@@ -16,10 +16,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Questions</a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <div id="login_links">
@@ -31,7 +28,8 @@
   </div>
 </nav>
 
-<section class="content container">
+<div class="container">
+<section class="content">
   <header>
     {% block header %}{% endblock %}
   </header>
@@ -40,5 +38,11 @@
   {% endfor %}
   {% block content %}{% endblock %}
 </section>
+
+<footer>
+  <hr />
+  <small>Created by thebongy. Project is under MIT License.</small>
+</footer>
+</div>
 </body>
 </html>
