@@ -13,7 +13,7 @@ flask run
 
 (fow Windows:)
 ````
-set FLASK_APP=flaskr
+set FLASK_APP=qans
 set FLASK_ENV=development
 flask run
 ````
